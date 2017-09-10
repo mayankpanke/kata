@@ -21,6 +21,6 @@ package rover.position;
      @Override
      public RoverPosition moveLeft() {
 
-         return null;
+         return RoverPositionFactory.position(this.x,this.y, RoverPositionFactory.FaceDirection.EAST);
      }
  }
