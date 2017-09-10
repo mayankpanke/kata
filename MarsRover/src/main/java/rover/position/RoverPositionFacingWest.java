@@ -22,4 +22,10 @@ package rover.position;
      public RoverPosition moveLeft() {
          return RoverPositionFactory.position(this.x,this.y, RoverPositionFactory.FaceDirection.SOUTH);
      }
+
+     @Override
+     public RoverPosition moveRight() {
+         return RoverPositionFactory.position(this.x,this.y, RoverPositionFactory.FaceDirection.NORTH);
+
+     }
  }

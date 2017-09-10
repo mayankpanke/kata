@@ -124,4 +124,22 @@ public class RoverMotionTest {
         assertThat(position, is(RoverPositionFactory.position(0,1, RoverPositionFactory.FaceDirection.NORTH)));
     }
 
+    @Test
+    public void roverMoveOneStepRightFacingNorth(){
+        Rover rover = new Rover(RoverPositionFactory.position(0,1, RoverPositionFactory.FaceDirection.NORTH));
+        rover.applyCommand("R");
+        RoverPosition position = rover.currentPosition();
+
+        assertThat(position, is(RoverPositionFactory.position(0,1, RoverPositionFactory.FaceDirection.EAST)));
+    }
+
+    @Test
+    public void roverMoveRightFacingNorthCircleBackNorth(){
+        Rover rover = new Rover(RoverPositionFactory.position(0,1, RoverPositionFactory.FaceDirection.NORTH));
+        rover.applyCommand("R", "R", "R", "R");
+        RoverPosition position = rover.currentPosition();
+
+        assertThat(position, is(RoverPositionFactory.position(0,1, RoverPositionFactory.FaceDirection.NORTH)));
+    }
+
 }

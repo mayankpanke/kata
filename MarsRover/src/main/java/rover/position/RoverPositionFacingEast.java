@@ -24,4 +24,10 @@ class RoverPositionFacingEast extends RoverPosition {
 
         return RoverPositionFactory.position(this.x,this.y, RoverPositionFactory.FaceDirection.NORTH);
     }
+
+    @Override
+    public RoverPosition moveRight() {
+        return RoverPositionFactory.position(this.x,this.y, RoverPositionFactory.FaceDirection.SOUTH);
+
+    }
 }

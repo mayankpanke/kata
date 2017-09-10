@@ -23,4 +23,10 @@ package rover.position;
 
          return RoverPositionFactory.position(this.x,this.y, RoverPositionFactory.FaceDirection.EAST);
      }
+
+     @Override
+     public RoverPosition moveRight() {
+         return RoverPositionFactory.position(this.x,this.y, RoverPositionFactory.FaceDirection.WEST);
+
+     }
  }

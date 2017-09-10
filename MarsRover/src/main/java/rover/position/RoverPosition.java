@@ -15,6 +15,8 @@ public abstract class RoverPosition {
 
     public abstract RoverPosition moveLeft();
 
+    public abstract RoverPosition moveRight();
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -33,6 +35,5 @@ public abstract class RoverPosition {
                 ", y=" + y +
                 '}';
     }
-
 
 }

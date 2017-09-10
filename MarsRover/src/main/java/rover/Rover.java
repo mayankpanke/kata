@@ -14,6 +14,8 @@ public class Rover {
         motionCommands.put("F", RoverPosition::moveAhead);
         motionCommands.put("B", RoverPosition::moveBack);
         motionCommands.put("L", RoverPosition::moveLeft);
+        motionCommands.put("R", RoverPosition::moveRight);
+
     }
 
     private RoverPosition currentPosition;
