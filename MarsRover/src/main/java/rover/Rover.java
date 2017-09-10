@@ -1,16 +1,19 @@
 package rover;
 
-import rover.command.Command;
+import rover.command.RoverMotionCommand;
+import rover.position.RoverPosition;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Rover {
-    private static Map<String, Command> commandFetcher = new HashMap<>();
+    private static Map<String, RoverMotionCommand> motionCommands = new HashMap<>();
+
     static {
-        commandFetcher.put("F", RoverPosition::moveAhead);
-        commandFetcher.put("B", RoverPosition::moveBack);
+        motionCommands.put("F", RoverPosition::moveAhead);
+        motionCommands.put("B", RoverPosition::moveBack);
+        motionCommands.put("L", RoverPosition::moveLeft);
     }
 
     private RoverPosition currentPosition;
@@ -19,12 +22,13 @@ public class Rover {
         currentPosition = initialPosition;
     }
 
-    public void applyCommand(String[] commands) {
+    public void applyCommand(String... commands) {
         Arrays.stream(commands)
-                .forEach(command -> commandFetcher.get(command).apply(currentPosition));
+                .forEach((String command) ->
+                        currentPosition = motionCommands.get(command).execute(currentPosition));
     }
 
-    public RoverPosition getPosition() {
+    public RoverPosition currentPosition() {
         return currentPosition;
     }
 }
